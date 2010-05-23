@@ -3,7 +3,6 @@ require 'mongo'
 require 'json'
 class User
   include Persist
-  #include Mongo
   attr_accessor :email, :inbox, :db, :coll
   
   def initialize(email)
