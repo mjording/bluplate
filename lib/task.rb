@@ -1,16 +1,19 @@
+require 'persist' 
 class Task
-  attr_accessor :tags, :history, :description
+  include Persist::Base
+  attr_accessor :tags, :history, :description, :user_email
   
-  def initialize(description)
+  def initialize(user_email, description)
+    @user_email = user_email
     @description = description
-    @tags ||= []
-    @history ||= []
+    @tags ||= {}
+    @history ||= {}
     
     
   end
   
   def to_hash
-    {"tags" => @tags, "history" => @history, "description" => @description}
+    {:tags => @tags, :history => @history, :description => @description}
   end
   
 end  
