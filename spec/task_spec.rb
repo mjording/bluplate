@@ -31,7 +31,8 @@ describe "Task" do
     @u.inbox << @task
     @u.save
     @user = User.find_by_email(@u.email)
-    @user.inbox.first.class == Task
+    @user.inbox.class.should == Array
+    @user.inbox.first.class.should == Task
     puts "blah one #{@user.inbox}"
     puts "blah #{@user.inbox.first.inspect}"
     @user.inbox.first.description.should_not == nil

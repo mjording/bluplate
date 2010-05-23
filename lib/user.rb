@@ -14,7 +14,7 @@ class User
   
   def to_hash
     inbox_hash = @inbox.map{|task| task.to_hash}
-    puts "WHAT IS IT #{inbox_hash.inspect}"
+    puts "WHAT IS IT #{inbox_hash.inspect} #{@inbox.inspect}"
     {"email" => @email, "inbox" => inbox_hash}
   end
   
@@ -24,8 +24,8 @@ class User
     else
       user_hash = nil
     end
+    inbox = user_hash ? user_hash[:inbox] : []
     puts "PUTS!!! #{user_hash}"
-    inbox = user_hash[:inbox]
     User.new(:email => email, :inbox => inbox)
   end
   
