@@ -3,7 +3,7 @@ require 'mongo'
 require 'json'
 class User
   include Persist
-  
+
   attr_accessor :email, :inbox
   
   def initialize(email)
