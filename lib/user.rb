@@ -2,7 +2,7 @@ require 'persist'
 require 'mongo'
 require 'json'
 class User
-  include Persist
+  include Persist::Base
 
   attr_accessor :email, :inbox
   
@@ -12,11 +12,21 @@ class User
   end
   
   def to_hash
-    {"email" => @email, "inbox" => @inbox}
+    inbox_hash = @inbox.map{|task| task.to_hash}
+    puts inbox_hash.inspect
+    {"email" => @email, "inbox" => inbox_hash}
   end
   
   def self.find_by_email(email)
-    DB.collection("users").find_one({"email" => email}).each{ |doc| doc.inspect }
+    user_hash = db.collection("users").find_one({"email" => email}).each{ |doc| doc.inspect }
+    inbox = user_hash[:inbox]
+    User.new(:email => email, :inbox => inbox)
+  end
+  
+  def self.create(opts={})
+    u = self.new(opts)
+    u.save
+    u
   end
   
 end

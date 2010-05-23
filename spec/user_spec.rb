@@ -7,13 +7,18 @@ describe "User" do
   it "should have an inbox list of tasks" do
     
     @user.inbox.class == Array
-    @task = Task.new
+    @task = Task.new(:description => "this is my task, there are many like it, but this one is mine")
     @user.inbox << @task
     @user.inbox.first.class == Task
   end
+  
+  it "should return a User object on find_by_email" do
+    @user.save
+    User.find_by_email(@user.email).class.should == User
+  end
+  
   it "should persist" do
     @user.save
-    @user.db.collection("users").find_one({"email" => @user.email}).each{ |doc| doc.inspect }.should_not == nil
     @u = User.find_by_email(@user.email)
     @u.should_not == nil
   end
