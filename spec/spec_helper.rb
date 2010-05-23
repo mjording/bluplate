@@ -5,7 +5,7 @@ require 'spec'
 require 'spec/autorun'
 require 'task'
 require 'user'
-
+require 'ticket'
 Spec::Runner.configure do |config|
   
 end

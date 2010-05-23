@@ -12,16 +12,10 @@ describe "Task" do
     @task.tags.class == Hash
   end
   
-  it "should have a history of hashes" do
-    @task.history.class == Hash
-    h = {}
-    @task.history["test"] = h
-    @task.history.first.class == Hash
-  end
+ 
   
   it "should persist" do
     @u.class.should == User
-    @u.inbox.class.should == Hash
     @u.inbox["test"] = @task.to_hash
     @u.save
     @user = User.find_by_email(@u.email)
@@ -33,10 +27,6 @@ describe "Task" do
     @u.save
     @user = User.find_by_email(@u.email)
     
-    puts "blah one #{@user.inbox} #{@user.inbox["test"]}"
-    puts "blah #{@user.inbox.first.inspect}"
-    #@user.inbox.class.should == Hash
-    #@user.inbox.class.should == Array
     
     @user.inbox["test"].should_not == nil
     

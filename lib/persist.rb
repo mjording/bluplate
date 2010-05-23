@@ -9,10 +9,8 @@ module Persist
   
   module Base
     
-  #DB = Mongo::Connection.new(Settings.mongo.host).db(Settings.mongo.db)
 
     def save
-      puts "DUDE #{self.to_hash.inspect}"
       self.class.db.collection(self.class.to_s.downcase.pluralize).insert(self.to_hash)
     end
     
