@@ -1,7 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Bluplate" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+  it "should have a user" do
+    user = User.new
+    user.class.should == User
   end
 end
