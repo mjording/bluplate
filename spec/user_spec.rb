@@ -13,6 +13,8 @@ describe "User" do
   end
   it "should persist" do
     @user.save
-    @user.db.collection("users").find({"email" => @user.email}).should_not == nil
+    @user.db.collection("users").find_one({"email" => @user.email}).each{ |doc| doc.inspect }.should_not == nil
+    @u = User.find_user_by_email(@user.email)
+    @u.should_not == nil
   end
 end
