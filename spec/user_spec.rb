@@ -8,4 +8,9 @@ describe "User" do
     @user.inbox << @task
     @user.inbox.first.class == Task
   end
+  it "should persist" do
+    @user = User.new
+    @user.save
+    # @user.db.collection("users").find(@)
+  end
 end

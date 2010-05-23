@@ -10,6 +10,8 @@ begin
     gem.email = "mjording@opengotham.com"
     gem.homepage = "http://github.com/opengotham/bluplate"
     gem.authors = ["matthew jording"]
+    gem.add_runtime_dependency "settingslogic"
+    gem.add_runtime_dependency "mongo"
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end

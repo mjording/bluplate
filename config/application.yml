@@ -1,0 +1,4 @@
+mongo:
+  host: localhost
+  db: bluplate
+
