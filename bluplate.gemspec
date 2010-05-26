@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{bluplate}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["matthew jording"]
-  s.date = %q{2010-05-23}
+  s.date = %q{2010-05-26}
   s.description = %q{a simple framework to share yourwork}
   s.email = %q{mjording@opengotham.com}
   s.extra_rdoc_files = [
@@ -27,12 +27,16 @@ Gem::Specification.new do |s|
      "config/application.yml",
      "init.rb",
      "lib/bluplate.rb",
-     "lib/persist.rb",
-     "lib/settings.rb",
-     "lib/task.rb",
-     "lib/ticket.rb",
-     "lib/user.rb",
+     "lib/bluplate/inbox.rb",
+     "lib/bluplate/inbox_plugins/dummy.rb",
+     "lib/bluplate/persist.rb",
+     "lib/bluplate/settings.rb",
+     "lib/bluplate/source.rb",
+     "lib/bluplate/task.rb",
+     "lib/bluplate/ticket.rb",
+     "lib/bluplate/user.rb",
      "spec/bluplate_spec.rb",
+     "spec/inbox_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "spec/task_spec.rb",
@@ -46,6 +50,7 @@ Gem::Specification.new do |s|
   s.summary = %q{share your work}
   s.test_files = [
     "spec/bluplate_spec.rb",
+     "spec/inbox_spec.rb",
      "spec/spec_helper.rb",
      "spec/task_spec.rb",
      "spec/ticket_spec.rb",

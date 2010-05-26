@@ -1,8 +1,10 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'bluplate'
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..'))
+require 'rubygems'
 require 'spec'
 require 'spec/autorun'
+require 'active_support/inflector'
+require 'bluplate'
 require 'bluplate/persist'
 require 'bluplate/task'
 require 'bluplate/user'

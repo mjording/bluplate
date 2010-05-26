@@ -1,9 +1,9 @@
-require 'persist' 
+require 'rubygems'
 require 'mongo'
 require 'json'
 module Bluplate
   class User
-    include Persist::Base
+    include Bluplate::Persist::Base
 
     attr_accessor :email, :inbox, :workstream, :contacts
   

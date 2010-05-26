@@ -1,8 +1,6 @@
+
 require 'rubygems'
 require 'mongo'
-require 'settings'
-require 'json'
-require 'active_support/inflector'
 module Bluplate
   module Persist
   
